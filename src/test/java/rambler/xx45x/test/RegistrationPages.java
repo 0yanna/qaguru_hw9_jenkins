@@ -21,7 +21,7 @@ public class RegistrationPages {
     SelenideElement userNumberInput = $("#userNumber");
     SelenideElement subjectsContainerInput = $("#subjectsInput");
     SelenideElement hobbiesWrapperInput = $("#hobbiesWrapper");
-    SelenideElement uploadFile = $("#uploadPicture");
+    //SelenideElement uploadFile = $("#uploadPicture");
     SelenideElement currentAddressInput = $("#currentAddress");
     SelenideElement stateInput = $("#react-select-3-input");
     SelenideElement stateCityInput = $("#react-select-4-input");
@@ -70,11 +70,11 @@ public class RegistrationPages {
         hobbiesWrapperInput.$(byText(value)).click();
         return this;
     }
-    public RegistrationPages addFile () {
-        File file = new File("src/test/resources/img/pic.png");
-        uploadFile.uploadFile(file);
-        return this;
-    }
+    //public RegistrationPages addFile () {
+    //    File file = new File("src/test/resources/img/pic.png");
+    //    uploadFile.uploadFile(file);
+    //    return this;
+    //}
     public RegistrationPages currentAddress (String value) {
         currentAddressInput.setValue(value);
         return this;

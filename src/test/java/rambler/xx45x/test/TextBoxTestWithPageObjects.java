@@ -37,7 +37,7 @@ public class TextBoxTestWithPageObjects {
                 .setDate("31", "January", "1990" )
                 .subjectsContainer("Maths")
                 .hobbiesWrapper("Sports")
-                .addFile()
+                //.addFile()
                 .currentAddress("Some address")
                 .state("Haryana")
                 .stateCity("Karnal")
@@ -50,7 +50,7 @@ public class TextBoxTestWithPageObjects {
                 .checkResultsValue("Date of Birth","31 January,1990")
                 .checkResultsValue("Subjects", "Maths")
                 .checkResultsValue("Hobbies", "Sports")
-                .checkResultsValue("Picture", "pic.png")
+                //.checkResultsValue("Picture", "pic.png")
                 .checkResultsValue("Address", "Some address")
                 .checkResultsValue("State and City", "Haryana Karnal");
     }
