@@ -37,79 +37,64 @@ public class RegistrationPages {
 
     private final CalendarComponent calendarComponent = new CalendarComponent();
 
-    //@Step("Вводим имя")
     public RegistrationPages typeFirstName(String value) {
         firstNameInput.setValue(value);
         return this;
     }
-    //@Step("Вводим фамилию")
     public RegistrationPages typeLastName (String value) {
         lastNameInput.setValue(value);
         return this;
     }
-    //@Step("Вводим Email")
     public RegistrationPages typeEmail (String value) {
         userEmailInput.setValue(value);
         return this;
     }
-    //@Step("Вводим пол")
     public RegistrationPages typeGenterWrapper () {
         genterWrapperInput.$(byText("Male")).click();
         return this;
     }
-    //@Step("Вводим номер телефона")
     public RegistrationPages typeuserNumber (String value) {
         userNumberInput.setValue(value);
         return this;
     }
-    //@Step("Вводим дату рождения")
     public RegistrationPages setDate(String day, String month, String year) {
         calendarComponent.setDate(day, month, year);
         return this;
     }
-    //@Step("Ввыбираем предмет")
     public RegistrationPages subjectsContainer (String value) {
         subjectsContainerInput.click();
         subjectsContainerInput.setValue(value).pressEnter();
         return this;
     }
-    //@Step("Указываем хобби")
     public RegistrationPages hobbiesWrapper (String value) {
         hobbiesWrapperInput.$(byText(value)).click();
         return this;
     }
-    //@Step("Загружаем файл")
     public RegistrationPages addFile () {
         File file = new File("src/test/resources/img/pic.png");
         uploadFile.uploadFile(file);
         return this;
     }
-    //@Step("Вводим адрес")
     public RegistrationPages currentAddress (String value) {
         currentAddressInput.setValue(value);
         return this;
     }
-    //@Step("Указываем штат")
     public RegistrationPages state (String value) {
         stateInput.setValue(value).pressEnter();
         return this;
     }
-    //@Step("Указываем город")
     public RegistrationPages stateCity (String value) {
         stateCityInput.setValue(value).pressEnter();
         return this;
     }
-    //@Step("Нажимаем submit")
     public RegistrationPages typeSubmitButton() {
         submitButton.click();
         return this;
     }
-    //@Step("Проверяем, что заполненная форма отображается")
     public RegistrationPages checkResultRegistrationForm() {
         resultRegistrationForm.should(visible);
         return this;
     }
-    //@Step("Проверяем введенные данные")
     public RegistrationPages checkResultsValue(String key, String value) {
         resultsTable.$(byText(key))
                 .parent().shouldHave(text(value));
