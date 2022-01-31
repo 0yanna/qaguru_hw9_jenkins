@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import rambler.xx45x.helper.Attach;
 
+import static io.qameta.allure.Allure.step;
+
 public class TextBoxTestWithPageObjects {
 
     RegistrationPages registrationPages = new RegistrationPages();
@@ -28,10 +30,15 @@ public class TextBoxTestWithPageObjects {
     @DisplayName("Homework#5")
     @Test
     void automationPracticeForm () {
+        step("Открываем страницу", () -> {
         registrationPages.openPage();
+        });
+        step("Вводим фамилию и имя", () -> {
         registrationPages.typeFirstName("Alex")
-                .typeLastName("Smith")
-                .typeEmail("xx@mail.ru")
+                .typeLastName("Smith");
+        });
+        step("Вводим личные данные и адрес", () -> {
+        registrationPages.typeEmail("xx@mail.ru")
                 .typeGenterWrapper()
                 .typeuserNumber("9110000000")
                 .setDate("31", "January", "1990" )
@@ -40,9 +47,13 @@ public class TextBoxTestWithPageObjects {
                 //.addFile()
                 .currentAddress("Some address")
                 .state("Haryana")
-                .stateCity("Karnal")
-                .typeSubmitButton()
-                .checkResultRegistrationForm()
+                .stateCity("Karnal");
+        });
+        step("Нажимаем сохранить", () -> {
+        registrationPages.typeSubmitButton();
+        });
+        step("Проверяем введенные данные", () -> {
+        registrationPages.checkResultRegistrationForm()
                 .checkResultsValue("Student Name", "Alex Smith")
                 .checkResultsValue("Student Email", "xx@mail.ru")
                 .checkResultsValue("Gender", "Male")
@@ -53,6 +64,7 @@ public class TextBoxTestWithPageObjects {
                 //.checkResultsValue("Picture", "pic.png")
                 .checkResultsValue("Address", "Some address")
                 .checkResultsValue("State and City", "Haryana Karnal");
+        });
     }
     @AfterEach
     void addAttachments() {

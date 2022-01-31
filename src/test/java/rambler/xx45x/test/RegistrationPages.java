@@ -29,7 +29,6 @@ public class RegistrationPages {
     SelenideElement resultRegistrationForm = $(".table-responsive");
     SelenideElement resultsTable = $(".table-responsive");
 
-    //@Step("Открываем страницу и проверяем что она содержит значение")
     public void openPage() {
         open("https://demoqa.com/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
