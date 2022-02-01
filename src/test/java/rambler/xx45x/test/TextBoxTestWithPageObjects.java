@@ -18,6 +18,12 @@ public class TextBoxTestWithPageObjects {
 
     @BeforeAll
     static void setUp() {
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("version", "91");
+        String remoteUrl = System.getProperty("remoteUrl");
+        String user = System.getProperty("user");
+        String password = System.getProperty("password");
+        Configuration.remote = "https://" + user + ":" + password + "@" + remoteUrl;
         Configuration.browserSize = "1920x1152";
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
         //конфигурируем удаленный запуск
